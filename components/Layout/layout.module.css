@@ -1,6 +1,6 @@
 .layoutContainer {
-  max-width: 82rem;
   padding: 0 1.4rem;
+  max-width: 82rem;
   margin: 3rem auto 6rem;
 }
 
@@ -22,4 +22,15 @@
 
 .backToHome {
   margin: 3rem 0 0;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
 }

@@ -1,9 +1,16 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from "next/head";
+import Link from "next/link";
 
-import styles from '../styles/Home.module.css'
+import styles from "../styles/Home.module.css";
 
-export default function Home() {
+import { getSortedPostsData } from "../lib/posts.script";
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return { props: { allPostsData } };
+}
+
+export default function Home({ allPostsData }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -11,17 +18,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
       <main className={styles.main}>
         <h1 className={styles.title}>Thiago's notes</h1>
         <p className={styles.description}>
-          Hi! Read my last post{" "}
-          <Link href="/posts/first-attempt">
-            here
-          </Link>
+          Hi! Read my last post <Link href="/posts/first-attempt">here</Link>
         </p>
 
+        <h2>Blog posts:</h2>
         <div className={styles.grid}>
+          {allPostsData.map(({ id, date, title }) => (
+            <a key={id} href="https://nextjs.org/docs" className={styles.card}>
+              <h3>{title} &rarr;</h3>
+              <h5>{date}</h5>
+              <p>{title}</p>
+            </a>
+          ))}
+        </div>
+
+        {/* <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
@@ -49,7 +63,7 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
 
       <footer className={styles.footer}>

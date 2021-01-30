@@ -37,6 +37,10 @@ export default function firstAttempt() {
           on) and importing global CSS file directly in{" "}
           <code className="code">/pages/_app.js</code>.
         </p>
+
+        <p className="description">
+          An strategy for styling tested here was: use <code className="code">pages/index.js</code> with styles from almost original Home.module.css while posts will be follow component Layout style guide. That way, lazy loading of Layout component will kick in, bringing loading advantages with it 'auto-magic-ly', as I like to say.
+        </p>
       </div>
     </Layout>
   );

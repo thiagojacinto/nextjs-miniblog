@@ -41,6 +41,10 @@ export default function firstAttempt() {
         <p className="description">
           An strategy for styling tested here was: use <code className="code">pages/index.js</code> with styles from almost original Home.module.css while posts will be follow component Layout style guide. That way, lazy loading of Layout component will kick in, bringing loading advantages with it 'auto-magic-ly', as I like to say.
         </p>
+
+        <p className="description">
+          Another interesting feature of NextJS is obviously Server Side Rendering and Static Site Generator. It gives the oportunity of analyze the best situations to deliver static pages, rendered by user request OR rendered at build time. The tutorial also indicate a way of handling data request, by creating markdown content to be read and populate a list - of blog posts - and sending it to index.js with <code className="code">getStaticProps</code>. The result is a list of blogs viewed at home page of this blog. Click at back button to visualize it if you didn't pay attention to it in the first place.
+        </p>
       </div>
     </Layout>
   );
